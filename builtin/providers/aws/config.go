@@ -14,6 +14,7 @@ import (
 	"github.com/awslabs/aws-sdk-go/service/elasticache"
 	"github.com/awslabs/aws-sdk-go/service/elb"
 	"github.com/awslabs/aws-sdk-go/service/iam"
+	"github.com/awslabs/aws-sdk-go/service/opsworks"
 	"github.com/awslabs/aws-sdk-go/service/rds"
 	"github.com/awslabs/aws-sdk-go/service/route53"
 	"github.com/awslabs/aws-sdk-go/service/s3"
@@ -40,6 +41,7 @@ type AWSClient struct {
 	rdsconn         *rds.RDS
 	iamconn         *iam.IAM
 	elasticacheconn *elasticache.ElastiCache
+	opsworksconn    *opsworks.OpsWorks
 }
 
 // Client configures and returns a fully initailized AWSClient
@@ -116,6 +118,9 @@ func (c *Config) Client() (interface{}, error) {
 
 		log.Println("[INFO] Initializing Elasticache Connection")
 		client.elasticacheconn = elasticache.New(awsConfig)
+
+		log.Println("[INFO] Initializing OpsWorks Connection")
+		client.opsworksconn = opsworks.New(usEast1AwsConfig)
 	}
 
 	if len(errs) > 0 {
