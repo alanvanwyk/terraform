@@ -280,6 +280,10 @@ func loadModulesHcl(os *hclobj.Object) ([]*Module, error) {
 	return result, nil
 }
 
+func LoadModulesHCL(os *hclobj.Object) ([]*Module, error) {
+	return loadModulesHcl(os)
+}
+
 // LoadOutputsHcl recurses into the given HCL object and turns
 // it into a mapping of outputs.
 func loadOutputsHcl(os *hclobj.Object) ([]*Output, error) {
@@ -321,6 +325,10 @@ func loadOutputsHcl(os *hclobj.Object) ([]*Output, error) {
 	}
 
 	return result, nil
+}
+
+func LoadOutputsHCL(os *hclobj.Object) ([]*Output, error) {
+	return loadOutputsHcl(os)
 }
 
 // LoadProvidersHcl recurses into the given HCL object and turns
@@ -379,6 +387,10 @@ func loadProvidersHcl(os *hclobj.Object) ([]*ProviderConfig, error) {
 	}
 
 	return result, nil
+}
+
+func LoadProvidersHCL(os *hclobj.Object) ([]*ProviderConfig, error) {
+	return loadProvidersHcl(os)
 }
 
 // Given a handle to a HCL object, this recurses into the structure
@@ -554,6 +566,10 @@ func loadResourcesHcl(os *hclobj.Object) ([]*Resource, error) {
 	}
 
 	return result, nil
+}
+
+func LoadResourcesHCL(os *hclobj.Object) ([]*Resource, error) {
+	return loadResourcesHcl(os)
 }
 
 func loadProvisionersHcl(os *hclobj.Object, connInfo map[string]interface{}) ([]*Provisioner, error) {
