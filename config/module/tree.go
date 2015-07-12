@@ -218,6 +218,10 @@ func (t *Tree) Path() []string {
 	return t.path
 }
 
+func (t *Tree) SetPath(path []string) {
+	t.path = path
+}
+
 // String gives a nice output to describe the tree.
 func (t *Tree) String() string {
 	var result bytes.Buffer
