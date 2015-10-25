@@ -1,0 +1,19 @@
+
+provider "template" {
+    command = "terraform-provider-template"
+}
+
+provider "null" {
+    command = "terraform-provider-null"
+    config {
+        blah = "foo"
+    }
+}
+
+provider "terraform" {
+    command = "terraform-provider-terraform"
+}
+
+provider "tls" {
+    command = "terraform-provider-tls"
+}
