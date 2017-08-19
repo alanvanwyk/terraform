@@ -93,8 +93,8 @@ func (r *Resource) Copy() *Resource {
 		Mode:         r.Mode,
 		Name:         r.Name,
 		Type:         r.Type,
-		RawCount:     r.RawCount.Copy(),
-		RawConfig:    r.RawConfig.Copy(),
+		RawCount:     r.RawCount,
+		RawConfig:    r.RawConfig,
 		Provisioners: make([]*Provisioner, 0, len(r.Provisioners)),
 		Provider:     r.Provider,
 		DependsOn:    make([]string, len(r.DependsOn)),
@@ -140,8 +140,8 @@ type Provisioner struct {
 func (p *Provisioner) Copy() *Provisioner {
 	return &Provisioner{
 		Type:      p.Type,
-		RawConfig: p.RawConfig.Copy(),
-		ConnInfo:  p.ConnInfo.Copy(),
+		RawConfig: p.RawConfig,
+		ConnInfo:  p.ConnInfo,
 		When:      p.When,
 		OnFailure: p.OnFailure,
 	}
